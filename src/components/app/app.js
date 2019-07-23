@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
 import Header from '../header';
-import Row from '../row';
+import RandomPlanet from '../random-planet';
 import './app.css';
-import { PersonList, StarshipList, PlanetList, StarshipDetails, PlanetDetails, PersonDetails } from '../sw-components';
+import { 
+	PeoplePage,
+	PlanetPage,
+	StarshipPage
+ } from '../pages';
+
+import SwapiService from '../../services/swapi-service';
+
+import { SwapiServiceProvider } from '../swapi-service-context';
 
 class App extends Component {
 
-  render() {
+	onServiceChange = () => {
+		console.log('asugd');
 
-    return (
-      <div>
+	}
 
-        <Header />
+	render() {
 
-        <StarshipDetails itemId={11}/>
+		return (
+			<div>
+				<SwapiServiceProvider value={new SwapiService()}>
 
-        <PlanetDetails itemId={11}/>
+					<Header onHeaderChange={this.onServiceChange} />
 
-        <PersonDetails itemId={11}/>
+					<RandomPlanet />
 
+					<PeoplePage />
+					<PlanetPage />
+					<StarshipPage />
 
-        <PersonList/>
+				</SwapiServiceProvider>
 
-        <StarshipList/>
-
-        <PlanetList/>
-
-      </div>
-    );
-  };
+			</div>
+		);
+	};
 }
 
 
