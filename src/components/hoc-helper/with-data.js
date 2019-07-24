@@ -29,7 +29,6 @@ const withData = (View) => {
 
 			this.props.getData()
 				.then((data)=>{
-					console.log('sdh');
 					
 					this.setState({
 						data,

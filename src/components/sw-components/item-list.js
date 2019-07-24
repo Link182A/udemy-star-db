@@ -2,6 +2,7 @@ import React from 'react';
 import ItemList from '../item-list';
 import withData from '../hoc-helper/with-data';
 import withSwapiService from '../hoc-helper/with-swapi-service';
+import compose from '../hoc-helper/compose';
 
 const withChildFunction = (Wrap, fn) => {
 	return (props) => {
